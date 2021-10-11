@@ -1,0 +1,87 @@
+import javafx.application.Application;
+import static javafx.application.Application.launch;
+import javafx.geometry.Insets;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
+
+import javafx.stage.Stage;
+
+public class ColorChoices extends Application {
+  
+    @Override
+    public void start(Stage primaryStage) {
+        Group root = new Group();
+        Canvas canvas = new Canvas(300, 300);
+        root.getChildren().add(canvas);
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+    
+        for (int i = 0; i <= 255; i++) {
+            gc.setStroke(Color.rgb(i, 0, 0));
+            gc.beginPath();
+            gc.moveTo(10, i);
+            gc.lineTo(50, i);
+            gc.stroke();
+            gc.closePath();
+        }
+      
+        for (int i = 0; i <= 255; i++) {
+            gc.setStroke(Color.rgb(0, i, 0));
+            gc.beginPath();
+            gc.moveTo(60, i);
+            gc.lineTo(100, i);
+            gc.stroke();
+            gc.closePath();
+        }
+    
+        for (int i = 0; i <= 255; i++) {
+            gc.setStroke(Color.rgb(0, 0, i));
+            gc.beginPath();
+            gc.moveTo(110, i);
+            gc.lineTo(150, i);
+            gc.stroke();
+            gc.closePath();
+        }
+      
+        for (int i = 0; i <= 255; i++) {
+            gc.setStroke(Color.rgb(i, 0, i));
+            gc.beginPath();
+        
+            gc.moveTo(160, i);
+            gc.lineTo(200, i);
+            gc.stroke();
+            gc.closePath();
+
+        }
+
+        for (int i = 0; i <= 255; i++) {
+            gc.setStroke(Color.rgb(i, i, i));
+            gc.beginPath();
+            gc.moveTo(210, i);
+
+            gc.lineTo(250, i);
+            gc.stroke();
+            gc.closePath();
+        }
+      
+        Scene scene = new Scene(root);
+
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Color Choices");
+        primaryStage.show();
+    }
+  
+
+
+    public static void main(String[] args) {
+        launch(args);
+
+
+
+
+    }
+  
+  
+}
